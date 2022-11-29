@@ -1,0 +1,39 @@
+import java.awt.*;
+
+public class GraphicsProject
+{
+
+    //main method
+   public static void main (String[]args){
+    //Initialize the variable
+    //The Window is 400 x 400 pixels in size
+    DrawingPanel panel = new DrawingPanel (400,400);
+    Graphics g = panel.getGraphics();
+    drawAstroid(g,0,0, 400);
+    }
+    
+   public static void drawAstroid(Graphics g, int x, int y, int size){ 
+       int scale = size/40; 
+       int x1, x2,x3, x4, y1, y2, y3, y4;
+       y1 = y;
+       y2 = y + size;
+       y3 = y + 1/2 * size;
+       y4 = y + 1/2 * size;
+
+       x1 = x + 1/2 * size;
+       x2 = x + 1/2 * size;
+       x3 = x + 1/2 * size;
+       x4 = x + 1/2 * size;
+
+       for (int i = 0; i < 21; i++ ){
+           //Draws Upper Left
+           g.drawLine(x4 - scale * i, y4, x1, y1 + scale * i);
+           //Draws Upper Right
+           g.drawLine(x4 + scale * i, y4, x2, y2 - scale * i);
+           //Draws Lower Left
+           g.drawLine(x3 - scale * i, y3, x4, y4 + scale * i);
+           //Draws Lower Right
+           g.drawLine(x3 + scale * i, y3, x2, y2 - scale * i);
+        }
+    }
+}
